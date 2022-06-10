@@ -7,6 +7,38 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+//Benchmart Test
+func BenchmarkTableKobo(b *testing.B) {
+	benchmarks := []struct{
+		name string
+		request string
+	}{
+		{
+			name : "boo",
+			request: "koboo",
+		},
+		{
+			name : "kooo",
+			request: "Demoon",
+		},
+		{
+			name : "chann",
+			request: "Lord",
+		},
+	}
+
+	for _,test := range benchmarks {
+		b.Run(test.name, func(b *testing.B){
+			for i:=0; i<b.N; i++{
+				Kobo(test.request)
+			}
+		})  
+			
+		}
+	}
+
+
+//Table test
 func TestTableKobo(t *testing.T){
 	tests := []struct{
 		name string

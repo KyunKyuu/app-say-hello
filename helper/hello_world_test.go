@@ -8,6 +8,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func BenchmarkHelloWorld(b *testing.B) {
+	for i:=0; i<b.N; i++{
+		HelloWorld("Teguh")
+	}
+}
+
 //test main buat ngejalanin semua Unit test sekaligus dalam 1 package
 func TestMain(m *testing.M){
 	fmt.Println("Sebelum Unit Test")
